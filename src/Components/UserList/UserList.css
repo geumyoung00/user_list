@@ -1,0 +1,19 @@
+.user_list {
+  width: 100%;
+  min-width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.user_info {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 2;
+  box-sizing: border-box;
+}
