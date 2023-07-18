@@ -17,3 +17,6 @@
   line-height: 2;
   box-sizing: border-box;
 }
+.user_info + .user_info {
+  margin-top: 10px;
+}

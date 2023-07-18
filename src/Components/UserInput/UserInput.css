@@ -20,7 +20,7 @@
     margin-bottom: 10px;
   }
   
-  .form .textbox input[type="text"] {
+  .form .textbox input {
     width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
