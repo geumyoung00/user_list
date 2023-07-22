@@ -1,43 +1,46 @@
 import React, { useState } from "react";
-import Alert from '../Alert/Alert';
+import Alert from "../Alert/Alert";
 import "./UserInput.css";
 
 const UserInput = (props) => {
+  /* null로 초기값을 잡으니 .trim().length 값을 불러들이지 못해서 오류가 발생합니다. */
   const [enteredValue, setEnteredValue] = useState({
     id: "",
     name: "",
-    age: "",
+    age: ""
   });
 
-  const [isValid, setIsValid] = useState(true);
+  const [alrtMess, setAlrtMess] = useState(false);
 
-  const enteredNameHandler = (e) => {
+  const ageLengHandler = (e) => {
     setEnteredValue({
       ...enteredValue,
       name: e.target.value,
     });
   };
 
-  const enteredAgeHandler = (e) => {
+  const nameLengHandler = (e) => {
     setEnteredValue({
       ...enteredValue,
       age: e.target.value,
     });
   };
-
-  let enteredName = enteredValue.name.trim().length;
-  let enteredAge = enteredValue.age.trim().length;
-
+  
   const forSubmitHandler = (e) => {
     e.preventDefault();
-    if ((enteredName > 0, enteredAge > 0)) {
-      setIsValid(true);
+    const ageLeng = enteredValue.name.trim().length;
+    const nameLeng = enteredValue.age.trim().length;
+
+    if(enteredValue.age < 0){
+      setAlrtMess('Please enter a valid age (age>0)');
+      return;
+    }
+
+    if (ageLeng > 0 && nameLeng > 0) {
       props.onAddUser(enteredValue);
     } else {
-      setIsValid(false);
+      setAlrtMess('Please enter a valid name and age (non-empty values)');
     }
-    //
-    // console.log(isValid);
 
     setEnteredValue({
       name: "",
@@ -54,7 +57,7 @@ const UserInput = (props) => {
           <input
             type="text"
             value={enteredValue.name}
-            onChange={enteredNameHandler}
+            onChange={ageLengHandler}
           ></input>
         </div>
         <div className="textbox">
@@ -62,12 +65,17 @@ const UserInput = (props) => {
           <input
             type="number"
             value={enteredValue.age}
-            onChange={enteredAgeHandler}
+            onChange={nameLengHandler}
           ></input>
         </div>
         <button type="submit">Add User</button>
       </form>
-      { isValid ? "" : <Alert></Alert> }
+      {alrtMess ? (<Alert alrtMess={alrtMess}
+          onClick={() => {
+            setAlrtMess(false);
+          }}
+        ></Alert>
+      ) : null}
     </div>
   );
 };

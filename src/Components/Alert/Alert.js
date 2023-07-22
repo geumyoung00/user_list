@@ -4,13 +4,13 @@ import "./Alert.css";
 const Alert = (props) => {
   return (
     <div className="alert">
-      <form>
+      <div>
         <div className="alert_top">InValid input</div>
         <div className="alert_contents">
-          <p>Please enter a valid name and age (non-empty values)</p>
-          <button>Okay</button>
+          <p>{props.alrtMess}</p>
+          <button onClick={props.onClick}>Okay</button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

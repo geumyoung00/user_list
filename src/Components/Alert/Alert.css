@@ -9,16 +9,16 @@
   transform: translate(-50%, -50%);
 }
 
-.alert > form {
+.alert > div {
   width: 80%;
-  height: fit-content;
+  height: auto;
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
   margin: 60px auto auto;
 }
 
-.alert > form > div {
+.alert > div > div {
   padding: 16px;
   box-sizing: border-box;
 }

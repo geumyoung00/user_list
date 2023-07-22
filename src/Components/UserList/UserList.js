@@ -4,26 +4,17 @@ import "./UserList.css";
 
 const UserList = (props) => {
 
-  return (
-
+  return props.users.length ? (
     <ul className="user_list">
-      {props.users.map((el, id)=>{
-        return(
+      {props.users.map((el, id) => {
+        return (
           <li className="user_info" key={el.id}>
-            {el.name.toString()+ " (" + el.age.toString() + " years old)"}
+            {el.name.toString() + ' (' + el.age.toString() + ' years old)'}
           </li>
-        )
-        
+        );
       })}
     </ul>
-      // <li className="user_info">
-      //   {props.users.map((el, id) => {
-      //     console.log(props.users[2].name)
-      //     return
-      //   })}
-      //   {console.log(props.users[0].name)}
-      // </li>
-  );
+  ) : null;
 };
 
 export default UserList;

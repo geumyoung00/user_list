@@ -1,4 +1,5 @@
-import React, { useDeferredValue, useState } from "react";
+import React from "react";
+import { useState } from "react";
 import UserInput from "./Components/UserInput/UserInput";
 import UserList from "./Components/UserList/UserList";
 
@@ -30,5 +31,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
