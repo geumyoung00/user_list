@@ -7,7 +7,7 @@ const Alert = (props) => {
       <div>
         <div className="alert_top">InValid input</div>
         <div className="alert_contents">
-          <p>{props.alrtMess}</p>
+          <p>{props.alertText}</p>
           <button onClick={props.onClick}>Okay</button>
         </div>
       </div>

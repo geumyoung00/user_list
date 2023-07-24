@@ -5,12 +5,12 @@ import "./UserInput.css";
 const UserInput = (props) => {
   /* null로 초기값을 잡으니 .trim().length 값을 불러들이지 못해서 오류가 발생합니다. */
   const [enteredValue, setEnteredValue] = useState({
-    id: "",
-    name: "",
-    age: ""
+    id: null,
+    name: null,
+    age: null
   });
 
-  const [alrtMess, setAlrtMess] = useState(false);
+  const [alertText, setAlertText] = useState(false);
 
   const ageLengHandler = (e) => {
     setEnteredValue({
@@ -28,18 +28,19 @@ const UserInput = (props) => {
   
   const forSubmitHandler = (e) => {
     e.preventDefault();
-    const ageLeng = enteredValue.name.trim().length;
-    const nameLeng = enteredValue.age.trim().length;
+    const ageLeng = enteredValue.name?.trim().length;
+    const nameLeng = enteredValue.age?.trim().length;
+    // "?" : 값이 있을 때만 메소드 실행
 
     if(enteredValue.age < 0){
-      setAlrtMess('Please enter a valid age (age>0)');
+      setAlertText('Please enter a valid age (age>0)');
       return;
     }
 
     if (ageLeng > 0 && nameLeng > 0) {
       props.onAddUser(enteredValue);
     } else {
-      setAlrtMess('Please enter a valid name and age (non-empty values)');
+      setAlertText('Please enter a valid name and age (non-empty values)');
     }
 
     setEnteredValue({
@@ -70,9 +71,9 @@ const UserInput = (props) => {
         </div>
         <button type="submit">Add User</button>
       </form>
-      {alrtMess ? (<Alert alrtMess={alrtMess}
+      {alertText ? (<Alert alertText={alertText}
           onClick={() => {
-            setAlrtMess(false);
+            setAlertText(false);
           }}
         ></Alert>
       ) : null}

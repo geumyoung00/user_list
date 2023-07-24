@@ -9,7 +9,8 @@ const UserList = (props) => {
       {props.users.map((el, id) => {
         return (
           <li className="user_info" key={el.id}>
-            {el.name.toString() + ' (' + el.age.toString() + ' years old)'}
+            {/* {el.name.toString() + ' (' + el.age.toString() + ' years old)'} */}
+            {`${el.name.toString()} (${el.age.toString()} years old)`}
           </li>
         );
       })}
