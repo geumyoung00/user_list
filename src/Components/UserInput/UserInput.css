@@ -1,0 +1,42 @@
+
+.form {
+    width: 100%;
+    min-width: 450px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  
+  .form .textbox {
+    margin-bottom: 20px;
+  }
+  
+  .form .textbox label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form .textbox input {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    line-height: 2.5;
+    font-size: 16px;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+  
+  .form button {
+    width: 120px;
+    font-size: 20px;
+    line-height: 2.2;
+    border: none;
+    background: purple;
+    color: #fff;
+    cursor: pointer;
+  }
+  
